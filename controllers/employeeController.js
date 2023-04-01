@@ -50,7 +50,16 @@ const employeeController = {
 
   getEmployeeByDepartment: async (req, res) => {
     var query = { departmentid: req.params.id };
+    try {
+      const employee = await Employee.find(query).exec();
+      res.status(200).json(employee);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  },
 
+  getEmployeeByPosition: async (req, res) => {
+    var query = { positionid: req.params.id };
     try {
       const employee = await Employee.find(query).exec();
       res.status(200).json(employee);

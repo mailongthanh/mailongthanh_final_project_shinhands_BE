@@ -13,6 +13,7 @@ router.get("/", employeeController.getAllEmployees);
 //ADD AN EMPLOYEE
 router.post("/add", employeeController.addEmployee);
 router.get("/:id/getByDepartment", employeeController.getEmployeeByDepartment);
+router.get("/:id/getByPosition", employeeController.getEmployeeByPosition);
 router.delete(
   "/:id/delete",
   verifyTokenAndUserAuthorization,

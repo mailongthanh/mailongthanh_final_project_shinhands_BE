@@ -50,7 +50,6 @@ const authController = {
 
   //LOGIN
   loginUser: async (req, res) => {
-    debugger;
     try {
       const user = await User.findOne({ username: req.body.username });
       const validPassword = await bcrypt.compare(
@@ -78,7 +77,6 @@ const authController = {
         return res.status(200).json({ ...others, accessToken, refreshToken });
       }
     } catch (err) {
-      console.log(err);
       return res.status(500).json(err);
     }
   },
